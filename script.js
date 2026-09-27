@@ -120,7 +120,7 @@ async function generateExcel() {
         const worksheet = workbook.worksheets[0];
 
         // 2. 26-qatordan ko'p bo'lsa merge patternlarini davom ettirish
-        const lastTemplateRow = 3;
+        const lastTemplateRow = 26;
         const neededLastRow = FIRST_DATA_ROW + students.length - 1;
 
         if (neededLastRow > lastTemplateRow) {
