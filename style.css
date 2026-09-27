@@ -1,0 +1,145 @@
+* { box-sizing: border-box; }
+
+body {
+    margin: 0;
+    background: #f4f6f8;
+    color: #17202a;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.container {
+    width: min(1050px, calc(100% - 30px));
+    margin: 35px auto 60px;
+}
+
+header {
+    margin-bottom: 22px;
+}
+
+header h1 {
+    margin: 0 0 8px;
+    font-size: 30px;
+}
+
+header p {
+    margin: 0;
+    color: #68727d;
+}
+
+.card {
+    background: #fff;
+    border: 1px solid #e0e5e9;
+    border-radius: 14px;
+    padding: 20px;
+    margin-bottom: 18px;
+    box-shadow: 0 3px 15px rgba(0,0,0,.04);
+}
+
+label {
+    display: block;
+    font-size: 14px;
+    font-weight: 700;
+    margin-bottom: 7px;
+}
+
+input, select {
+    width: 100%;
+    border: 1px solid #cbd2d8;
+    border-radius: 9px;
+    padding: 11px 12px;
+    font-size: 15px;
+    outline: none;
+    background: #fff;
+}
+
+input:focus, select:focus {
+    border-color: #222;
+}
+
+.student-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 18px;
+}
+
+.student-head h2 {
+    font-size: 18px;
+    margin: 0;
+}
+
+.remove {
+    border: 0;
+    background: #f1f2f3;
+    border-radius: 8px;
+    padding: 8px 12px;
+    cursor: pointer;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 15px;
+}
+
+.field.wide {
+    grid-column: span 2;
+}
+
+.add-btn, .excel-btn {
+    border: 0;
+    border-radius: 10px;
+    padding: 13px 18px;
+    font-weight: 700;
+    cursor: pointer;
+    font-size: 15px;
+}
+
+.add-btn {
+    width: 100%;
+    background: #fff;
+    border: 1px dashed #9da6af;
+    color: #17202a;
+}
+
+.bottom {
+    margin-top: 18px;
+}
+
+.excel-btn {
+    width: 100%;
+    background: #17202a;
+    color: #fff;
+    padding: 15px;
+}
+
+.excel-btn:disabled {
+    opacity: .6;
+    cursor: wait;
+}
+
+.error {
+    min-height: 22px;
+    color: #c62828;
+    margin-bottom: 7px;
+    font-size: 14px;
+}
+
+@media (max-width: 700px) {
+    .container {
+        width: min(100% - 18px, 1050px);
+        margin-top: 18px;
+    }
+
+    .grid {
+        grid-template-columns: 1fr;
+    }
+
+    .field.wide {
+        grid-column: span 1;
+    }
+
+    .card {
+        padding: 15px;
+    }
+}

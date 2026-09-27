@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maktab o‘quvchilari</title>
+    <!-- Style va Flatpickr CDN -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    
+    <!-- Flatpickr JS -->
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    
+    <!-- ExcelJS va FileSaver CDN kutubxonalari -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/exceljs/4.3.0/exceljs.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
+</head>
+<body>
+<div class="container">
+    <header>
+        <h1>Maktab o‘quvchilari</h1>
+        <p>O‘quvchilar ma’lumotlarini kiriting va Excel fayl yarating</p>
+    </header>
+
+    <section class="card">
+        <label for="className">Sinf nomi</label>
+        <input id="className" type="text" placeholder="Masalan: 7-A" autocomplete="off">
+    </section>
+
+    <div id="students"></div>
+
+    <button class="add-btn" type="button" onclick="addStudent()">+ O‘quvchi qo‘shish</button>
+
+    <section class="bottom">
+        <div id="error" class="error"></div>
+        <button class="excel-btn" type="button" onclick="generateExcel()">EXCEL YARATISH</button>
+    </section>
+</div>
+
+<template id="studentTemplate">
+    <div class="student card">
+        <div class="student-head">
+            <h2>O‘quvchi <span class="number"></span></h2>
+            <button type="button" class="remove" onclick="removeStudent(this)">O‘chirish</button>
+        </div>
+
+        <div class="grid">
+            <div class="field wide">
+                <label>F.I.Sh.</label>
+                <input data-key="fish" type="text" placeholder="Familiya Ism Sharif">
+            </div>
+
+            <div class="field">
+                <label>Tug‘ilgan sana</label>
+                <input data-key="birth" class="birth-input" type="text" placeholder="dd/mm/yyyy" maxlength="10" />
+            </div>
+
+            <div class="field">
+                <label>Jinsi</label>
+                <select data-key="gender">
+                    <option value="">Tanlang</option>
+                    <option value="Erkak">Erkak</option>
+                    <option value="Ayol">Ayol</option>
+                </select>
+            </div>
+
+            <div class="field">
+                <label>Millati</label>
+                <input data-key="nationality" type="text" placeholder="O‘zbek">
+            </div>
+
+            <div class="field wide">
+                <label>Otasi haqida ma’lumot</label>
+                <input data-key="father" type="text" placeholder="Otasi F.I.Sh.">
+            </div>
+
+            <div class="field wide">
+                <label>Otasi ish joyi</label>
+                <input data-key="father_job" type="text">
+            </div>
+
+            <div class="field wide">
+                <label>Onasi haqida ma’lumot</label>
+                <input data-key="mother" type="text" placeholder="Onasi F.I.Sh.">
+            </div>
+
+            <div class="field wide">
+                <label>Onasi ish joyi</label>
+                <input data-key="mother_job" type="text">
+            </div>
+
+            <div class="field">
+                <label>Telefon raqami</label>
+                <input data-key="phone" type="text" placeholder="+998 90 123 45 67">
+            </div>
+
+            <div class="field wide">
+                <label>Manzil</label>
+                <input data-key="address" type="text">
+            </div>
+
+            <div class="field">
+                <label>Mahallasi</label>
+                <input data-key="mahalla" type="text">
+            </div>
+
+            <div class="field">
+                <label>Metirka raqami</label>
+                <input data-key="metrika" type="text">
+            </div>
+
+            <div class="field">
+                <label>JSHSHIR</label>
+                <input data-key="jshshir" type="text" inputmode="numeric" maxlength="14">
+            </div>
+        </div>
+    </div>
+</template>
+
+<!-- JS kodi alohida script.js faylidan yuklanadi -->
+<script src="script.js"></script>
+</body>
+</html>
